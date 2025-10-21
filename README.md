@@ -1,135 +1,178 @@
-# Turborepo starter
+# ⚡ Curv-UI | Modern React Component Library
 
-This Turborepo starter is maintained by the Turborepo core team.
+**Build beautiful, accessible, and animated UIs faster with Curv-UI — a sleek, modern component library for React and Next.js**
 
-## Using this example
+[![React](https://img.shields.io/badge/React-18-blue)](https://react.dev/)  
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://www.typescriptlang.org/)  
+[![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-3-38B2AC)](https://tailwindcss.com/)  
+[![Motion](https://img.shields.io/badge/Framer_Motion-animations-ff69b4)](https://www.framer.com/motion/)  
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-Run the following command:
+## 🌟 Overview
 
-```sh
-npx create-turbo@latest
-```
+**Curv-UI** is a next-generation React component library designed for speed, elegance, and consistency.  
+It offers a growing collection of **prebuilt, customizable, and animated components**, built with **TypeScript**, **Tailwind CSS**, and **Framer Motion**, ensuring delightful user experiences with minimal effort.
 
-## What's inside?
+Perfect for:
 
-This Turborepo includes the following packages/apps:
+- 🚀 **Frontend developers** who want to ship fast and look great
+- 🧑‍💻 **Next.js users** who value performance and accessibility
+- 🎨 **Designers & engineers** building consistent UI systems
+- 🧩 **Teams & startups** who want a shared component foundation
 
-### Apps and Packages
+## ✨ Features
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+- **🎨 Beautiful Components** – Ready-to-use UI blocks crafted for modern web apps
+- **⚙️ Fully Customizable** – Built with Tailwind, easily theme and extend
+- **💫 Motion Ready** – Framer Motion animations for smooth UX out of the box
+- **📦 Tree-shakeable** – Import only what you need for optimal performance
+- **🧱 Accessible by Default** – Follows WAI-ARIA best practices
+- **🧠 Type Safe** – Built entirely with TypeScript for developer confidence
+- **🧩 Composable Architecture** – Components designed for flexibility and reuse
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+## 🛠️ Tech Stack
 
-### Utilities
+- **Framework**: React 18 / Next.js 14
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Build Tool**: Turborepo + Vite (for component builds)
+- **Documentation**: Next.js MDX-based docs
 
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
-```
-
-You can build a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+## 📦 Project Structure
 
 ```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
+my-ui-library/
+├── packages/
+│   ├── cli/                    # CLI tool for copying components
+│   │   ├── src/
+│   │   │   ├── commands/
+│   │   │   │   ├── init.ts    # Initialize config
+│   │   │   │   └── add.ts     # Add components
+│   │   │   ├── utils/
+│   │   │   │   ├── get-config.ts
+│   │   │   │   └── templates.ts
+│   │   │   └── index.ts
+│   │   └── package.json
+│   │
+│   └── components/             # Component source code
+│       ├── ui/
+│       │   ├── button.tsx
+│       │   ├── card.tsx
+│       │   └── ...
+│       └── package.json
+│
+├── apps/
+│   ├── docs/                   # Documentation site
+│   └── playground/             # Testing environment
+│
+├── registry/                   # Component registry (metadata)
+│   ├── registry.json          # Component definitions
+│   └── styles/                # Style variants
+│
+└── package.json               # Root package.json (monorepo)
 ```
 
-### Develop
+## 🔧 Scripts
 
-To develop all apps and packages, run the following command:
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run type-check` - Run TypeScript compiler
 
-```
-cd my-turborepo
+## 🚀 Getting Started
 
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
+### Prerequisites
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
+Make sure you have one of the following package managers installed:
 
-You can develop a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+- [Node.js](https://nodejs.org/) (18.0 or later)
+- [npm](https://www.npmjs.com/), [yarn](https://yarnpkg.com/), [pnpm](https://pnpm.io/), or [bun](https://bun.sh/)
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
+### Installation
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
+1. **Clone the repository**
 
-### Remote Caching
+    ```bash
+    git clone https://github.com/rohankumarchaudhary67/curv-ui.git
+    cd curv-ui
+    ```
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+2. **Install dependencies**
 
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+    ```bash
+    npm install
+    # or
+    yarn install
+    # or
+    pnpm install
+    # or
+    bun install
+    ```
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+3. **Set up environment variables**
 
-```
-cd my-turborepo
+    ```bash
+    cp .env.example .env.local
+    ```
 
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
+    Add your required API keys and configuration variables.
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
-```
+4. **Run the development server**
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    # or
+    pnpm dev
+    # or
+    bun dev
+    ```
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+5. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000) to see the application.
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
+## 🤝 Contributing
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
-```
+We welcome contributions from developers of all skill levels! Here's how you can contribute:
 
-## Useful Links
+### Getting Started
 
-Learn more about the power of Turborepo:
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Commit your changes (`git commit -m 'Add some amazing feature'`)
+5. Push to the branch (`git push origin feature/amazing-feature`)
+6. Open a Pull Request
 
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+### Development Guidelines
+
+- Follow TypeScript best practices
+- Write clean, readable code with proper comments
+- Ensure responsive design compatibility
+- Test your changes thoroughly before submitting
+
+### Other Platforms
+
+Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for other deployment options.
+
+## 📚 Learn More
+
+- [Next.js Documentation](https://nextjs.org/docs) - Learn about Next.js features and API
+- [Learn Next.js](https://nextjs.org/learn) - Interactive Next.js tutorial
+
+## 🤝 Community & Support
+
+- 📧 **Issues**: [GitHub Issues](https://github.com/rohankumarchaudhary67/curv-ui/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/rohankumarchaudhary67/curv-ui/discussions)
+- 🐦 **Updates**: Follow the latest updates and announcements
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+**Happy Contributing! 🎉**
+
+Made with ❤️ for the open source community
