@@ -5,10 +5,9 @@ import { Github, Instagram } from "lucide-react";
 export default function DesktopNavigation() {
     const navLinks = [
         { href: "/docs/installation", label: "Docs" },
-        { href: "/components", label: "Components" },
+        { href: "/docs/components", label: "Components" },
         { href: "/cli", label: "CLI" },
         { href: "/colors", label: "Colors" },
-        { href: "/figma", label: "Figma" },
     ];
 
     return (
@@ -53,7 +52,7 @@ export default function DesktopNavigation() {
                         <Github className="w-5 h-5" />
                     </Link>
                     <Link
-                        href="https://instagram.com"
+                        href="https://www.instagram.com/curv.ui/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-gray-300 hover:text-white transition-colors"

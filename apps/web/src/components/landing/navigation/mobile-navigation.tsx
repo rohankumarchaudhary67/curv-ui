@@ -16,9 +16,8 @@ export default function MobileNavigation() {
         { label: "Home", href: "/" },
         { label: "Docs", href: "/docs/installation" },
         { label: "Components", href: "/docs/components" },
-        { label: "CLI", href: "/docs/cli" },
+        { label: "CLI", href: "/cli" },
         { label: "Colors", href: "/colors" },
-        { label: "Figma", href: "/figma" },
     ];
 
     const getStarted = [
@@ -56,7 +55,7 @@ export default function MobileNavigation() {
                         <Github className="w-5 h-5" />
                     </Link>
                     <Link
-                        href="https://instagram.com"
+                        href="https://www.instagram.com/curv.ui/"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
