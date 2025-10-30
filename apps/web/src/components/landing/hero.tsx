@@ -5,28 +5,10 @@ import { ArrowRight } from "lucide-react";
 
 export function Hero() {
     return (
-        <section className="relative text-center py-20 md:pt-32 bg-black text-white">
+        <section className="relative text-center py-12 md:py-20 md:pt-32 bg-black text-white md:mb-16">
             <div className="max-w-3xl mx-auto px-4 flex flex-col items-center">
-                {/* Logo Section */}
-                <Link
-                    href="/"
-                    className="flex md:hidden items-center gap-2.5 group pb-4"
-                >
-                    <div className="flex justify-center items-center transition-transform duration-300 group-hover:rotate-12">
-                        <Image
-                            src="/logos/logo.png"
-                            alt="Curv UI"
-                            width={50}
-                            height={50}
-                            className="object-contain"
-                        />
-                    </div>
-                    <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent font-mono tracking-tight text-4xl font-bold">
-                        Curv UI
-                    </span>
-                </Link>
                 {/* Title */}
-                <h1 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight">
+                <h1 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight pt-24 md:pt-12">
                     Build interfaces that
                     <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-pulse">
                         feel magical
@@ -43,7 +25,7 @@ export function Hero() {
                 {/* CTA Buttons */}
                 <div className="flex flex-wrap gap-4 justify-center items-center">
                     <Link
-                        href={"/components"}
+                        href={"/docs/components"}
                         className="group px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-medium text-white hover:shadow-lg hover:shadow-purple-500/40 transition-all duration-300 hover:scale-105 flex items-center cursor-pointer"
                     >
                         Explore Components

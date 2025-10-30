@@ -1,49 +1,83 @@
 // packages/components/ui/button.tsx
+"use client";
+
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-// Enhanced button variants with modern, elegant designs
 const buttonVariants = cva(
-    // Enhanced base styles with smooth transitions
     "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98] relative overflow-hidden cursor-pointer",
     {
         variants: {
             variant: {
-                // Gradient with shimmer effect
-                default:
-                    "bg-primary text-primary-foreground shadow hover:bg-primary/90 before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-transform before:duration-700",
-                gradient:
-                    "bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white shadow-lg shadow-indigo-500/30 hover:shadow-xl hover:shadow-indigo-500/40 hover:scale-[1.02] before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-transform before:duration-700",
+                // Default – theme adaptive primary button
+                default: `
+                    bg-primary text-primary-foreground shadow hover:bg-primary/90
+                    dark:bg-indigo-600 dark:text-white dark:hover:bg-indigo-500
+                    before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent
+                    before:translate-x-[-200%] hover:before:translate-x-[200%]
+                    before:transition-transform before:duration-700
+                `,
 
-                // Elegant glass morphism
-                glass: "bg-white/10 backdrop-blur-md border border-white/20 text-foreground shadow-xl hover:bg-white/20 hover:border-white/30 hover:shadow-2xl",
+                // Gradient – balanced between light/dark modes
+                gradient: `
+                    bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white shadow-lg shadow-indigo-500/30
+                    hover:shadow-xl hover:shadow-indigo-500/40 hover:scale-[1.02]
+                    dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500
+                    before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent
+                    before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-transform before:duration-700
+                `,
 
-                // Sophisticated outline with glow
-                outline:
-                    "border-2 border-gradient-to-r from-indigo-500 to-purple-500 bg-background text-foreground shadow-sm hover:shadow-lg hover:shadow-indigo-500/20 hover:border-indigo-600 hover:-translate-y-0.5",
+                // Glass morphism – subtle light/dark background
+                glass: `
+                    bg-white/10 backdrop-blur-md border border-white/20 text-gray-400 shadow-xl
+                    hover:bg-white/20 hover:border-white/30 hover:shadow-2xl
+                    dark:bg-white/5 dark:border-white/10 dark:hover:bg-white/10 dark:hover:border-white/20
+                `,
 
-                // Modern destructive with gradient
-                destructive:
-                    "bg-gradient-to-r from-red-600 to-rose-600 text-white shadow-lg shadow-red-500/30 hover:shadow-xl hover:shadow-red-500/40 hover:from-red-700 hover:to-rose-700",
+                // Outline – adaptive glow
+                outline: `
+                    border-2 border-indigo-500 bg-background text-foreground
+                    hover:shadow-lg hover:shadow-indigo-500/20 hover:border-indigo-600 hover:-translate-y-0.5
+                    dark:border-indigo-400 dark:text-white dark:hover:border-indigo-300
+                `,
 
-                // Soft and minimal
-                soft: "bg-indigo-50 text-indigo-700 hover:bg-indigo-100 hover:text-indigo-800 shadow-sm dark:bg-indigo-950 dark:text-indigo-300 dark:hover:bg-indigo-900",
+                // Destructive – red-themed gradient
+                destructive: `
+                    bg-gradient-to-r from-red-600 to-rose-600 text-white shadow-lg shadow-red-500/30
+                    hover:shadow-xl hover:shadow-red-500/40 hover:from-red-700 hover:to-rose-700
+                    dark:from-red-700 dark:to-rose-800 dark:hover:from-red-800 dark:hover:to-rose-900
+                `,
 
-                // Premium gradient outline
-                gradientOutline:
-                    "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-[2px] hover:p-[3px] [&>span]:bg-background [&>span]:rounded-[calc(0.5rem-2px)] [&>span]:px-4 [&>span]:py-2 [&>span]:h-full [&>span]:w-full [&>span]:flex [&>span]:items-center [&>span]:justify-center [&>span]:gap-2 hover:shadow-lg hover:shadow-purple-500/30",
+                // Soft – gentle theme-aware color
+                soft: `
+                    bg-indigo-50 text-indigo-700 hover:bg-indigo-100 hover:text-indigo-800 shadow-sm
+                    dark:bg-indigo-950 dark:text-indigo-300 dark:hover:bg-indigo-900
+                `,
 
-                // Sleek ghost with subtle hover
-                ghost: "hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 hover:text-indigo-700 text-foreground dark:hover:from-indigo-950 dark:hover:to-purple-950 dark:hover:text-indigo-300",
+                // Ghost – elegant transparent button
+                ghost: `
+                    text-gray-400 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 hover:text-indigo-700
+                    dark:hover:from-indigo-950 dark:hover:to-purple-950 dark:hover:text-indigo-300
+                `,
 
-                // Neon glow effect
-                neon: "bg-black text-cyan-400 border-2 border-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.5)] hover:shadow-[0_0_20px_rgba(34,211,238,0.8)] hover:bg-cyan-400/10 hover:scale-[1.02]",
+                // Neon – works on both black and white themes
+                neon: `
+                    bg-black text-cyan-400 border-2 border-cyan-400
+                    shadow-[0_0_10px_rgba(34,211,238,0.5)] hover:shadow-[0_0_20px_rgba(34,211,238,0.8)]
+                    hover:bg-cyan-400/10 hover:scale-[1.02]
+                    dark:bg-transparent dark:text-cyan-300 dark:border-cyan-300
+                `,
 
-                // Elegant link with underline animation
-                link: "text-indigo-600 hover:text-indigo-700 underline-offset-4 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full relative pb-1",
+                // Link – refined underline animation
+                link: `
+                    text-indigo-600 hover:text-indigo-700 underline-offset-4
+                    after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px]
+                    after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full relative pb-1
+                    dark:text-indigo-400 dark:hover:text-indigo-300 dark:after:bg-indigo-400
+                `,
             },
             size: {
                 default: "h-10 px-6 py-2.5",
@@ -89,21 +123,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref
     ) => {
         const Comp = asChild ? Slot : "button";
-
-        // Special handling for gradientOutline variant
-        if (variant === "gradientOutline") {
-            return (
-                <Comp
-                    className={cn(
-                        buttonVariants({ variant, size, elevation, className })
-                    )}
-                    ref={ref}
-                    {...props}
-                >
-                    <span>{props.children}</span>
-                </Comp>
-            );
-        }
 
         return (
             <Comp

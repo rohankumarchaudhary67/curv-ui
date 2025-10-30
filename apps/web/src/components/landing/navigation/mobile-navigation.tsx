@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { X, Menu, Github, Instagram } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import Image from "next/image";
 
 export default function MobileNavigation() {
     const [isOpen, setIsOpen] = useState(false);
@@ -31,7 +32,20 @@ export default function MobileNavigation() {
         <>
             {/* Top bar */}
             <div className="flex md:hidden items-center justify-between px-4 py-3 bg-black text-white fixed top-0 left-0 w-full z-50">
-                <div className="text-lg font-semibold">Menu</div>
+                <Link href="/" className="flex items-center gap-2.5 group">
+                    <div className="flex justify-center items-center w-9 h-9 transition-transform duration-300 group-hover:rotate-12">
+                        <Image
+                            src="/logos/logo.png"
+                            alt="Curv UI"
+                            width={30}
+                            height={30}
+                            className="object-contain"
+                        />
+                    </div>
+                    <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent font-mono tracking-tight text-xl font-bold">
+                        Curv UI
+                    </span>
+                </Link>
 
                 <div className="flex items-center gap-4">
                     <Link

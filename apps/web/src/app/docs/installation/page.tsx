@@ -1,5 +1,3 @@
-"use client";
-
 import NavigationButtons from "@/components/buttons/navigation-button";
 import Link from "next/link";
 import { SiNextdotjs, SiVite, SiReact } from "react-icons/si";
@@ -12,7 +10,7 @@ const frameworks = [
 
 export default function InstallationPage() {
     return (
-        <div className="max-w-4xl ml-24 text-white">
+        <div className="py-6 min-h-screen bg-black text-white max-w-3xl pt-12 md:pt-6 md:ml-24 px-6">
             {/* Page Heading */}
             <div>
                 <h1 className="text-4xl font-bold mb-3">Installation</h1>
@@ -30,7 +28,7 @@ export default function InstallationPage() {
                 </p>
 
                 {/* Framework Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 mb-16">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 mb-12">
                     {frameworks.map((fw) => {
                         const Icon = fw.icon;
                         return (
@@ -52,8 +50,8 @@ export default function InstallationPage() {
                 <NavigationButtons
                     previousHref="/docs"
                     previousLabel="Introduction"
-                    nextHref="/docs/components-json"
-                    nextLabel="components.json"
+                    nextHref="/docs/components"
+                    nextLabel="Components"
                 />
             </div>
         </div>
