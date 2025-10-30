@@ -6,7 +6,7 @@ import { Footer } from "./footer";
 export default function UILibraryLanding() {
     return (
         <div className="min-h-screen bg-black text-white overflow-hidden relative">
-            <div className="relative z-10">
+            <div className="relative">
                 <Hero />
                 <CodePreview />
                 <Features />

@@ -8,23 +8,14 @@ const sections = [
     {
         title: "Get Started",
         links: [
+            { name: "Introduction", href: "/docs" },
             { name: "Installation", href: "/docs/installation" },
-            { name: "components.json", href: "/docs/components-json" },
-            { name: "Theming", href: "/docs/theming" },
-            { name: "Dark Mode", href: "/docs/dark-mode" },
-            { name: "CLI", href: "/docs/cli" },
-            { name: "Monorepo", href: "/docs/monorepo" },
+            { name: "Components", href: "/docs/components" },
         ],
     },
     {
         title: "Components",
-        links: [
-            { name: "Accordion", href: "/docs/components/accordion" },
-            { name: "Alert", href: "/docs/components/alert" },
-            { name: "Alert Dialog", href: "/docs/components/alert-dialog" },
-            { name: "Avatar", href: "/docs/components/avatar" },
-            { name: "Badge", href: "/docs/components/badge" },
-        ],
+        links: [{ name: "Button", href: "/docs/components/button" }],
     },
 ];
 
