@@ -42,14 +42,23 @@ export function Hero() {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-wrap gap-4 justify-center items-center">
-                    <button className="group px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-medium text-white hover:shadow-lg hover:shadow-purple-500/40 transition-all duration-300 hover:scale-105 flex items-center cursor-pointer">
+                    <Link
+                        href={"/components"}
+                        className="group px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-medium text-white hover:shadow-lg hover:shadow-purple-500/40 transition-all duration-300 hover:scale-105 flex items-center cursor-pointer"
+                    >
                         Explore Components
                         <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-                    </button>
+                    </Link>
 
-                    <button className="px-6 py-3 border border-slate-700 rounded-lg font-medium cursor-pointer text-slate-300 hover:border-purple-500 hover:text-white transition-colors duration-300">
+                    <Link
+                        href={
+                            "https://github.com/rohankumarchaudhary67/curv-ui"
+                        }
+                        target="_blank"
+                        className="px-6 py-3 border border-slate-700 rounded-lg font-medium cursor-pointer text-slate-300 hover:border-purple-500 hover:text-white transition-colors duration-300"
+                    >
                         View on GitHub
-                    </button>
+                    </Link>
                 </div>
             </div>
         </section>

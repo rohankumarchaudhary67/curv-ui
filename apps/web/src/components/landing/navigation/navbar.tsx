@@ -4,11 +4,13 @@ import MobileNavigation from "./mobile-navigation";
 export function Navbar() {
     return (
         <>
-            {/* Desktop Navigation */}
-            <DesktopNavigation />
+            <div className="sticky top-0 z-50 backdrop-blur-xl bg-transparent w-full">
+                {/* Desktop Navigation */}
+                <DesktopNavigation />
 
-            {/* Mobile Navigation */}
-            <MobileNavigation />
+                {/* Mobile Navigation */}
+                <MobileNavigation />
+            </div>
         </>
     );
 }
