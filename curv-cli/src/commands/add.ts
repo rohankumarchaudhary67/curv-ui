@@ -6,6 +6,7 @@ import { Command } from "commander";
 import { execa } from "execa";
 import ora from "ora";
 import { getTemplate } from "../utils/templates.js";
+import dependencies from "../dependencies.js";
 
 export const add = new Command()
     .name("add")
@@ -40,14 +41,7 @@ export const add = new Command()
             await fs.writeFile(outFile, template);
 
             // Define dependencies for each component
-            const deps: Record<string, string[]> = {
-                button: [
-                    "@radix-ui/react-slot",
-                    "class-variance-authority",
-                    "clsx",
-                    "tailwind-merge",
-                ],
-            };
+            const deps: Record<string, string[]> = dependencies;
 
             // Install dependencies if defined
             if (deps[componentName]) {
