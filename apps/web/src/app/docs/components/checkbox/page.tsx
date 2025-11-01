@@ -2,12 +2,13 @@ import { Checkbox } from "@/components/ui/checkbox";
 import CodeBlock from "@/components/code-block";
 import NavigationButtons from "@/components/buttons/navigation-button";
 
-export default function ButtonDocs() {
+export default function CheckboxDocs() {
     return (
         <div className="max-w-3xl ml-0 md:ml-24 p-4 pt-12 md:p-8 text-white bg-black min-h-screen">
-            <h1 className="text-4xl font-bold mb-3">Button</h1>
+            <h1 className="text-4xl font-bold mb-3">Checkbox</h1>
             <p className="text-neutral-400 mb-6">
-                Displays a button or a component that looks like a button.
+                A control that allows the user to toggle between checked and not
+                checked.
             </p>
 
             <section className="mb-6">
@@ -42,8 +43,8 @@ export default function ButtonDocs() {
             <NavigationButtons
                 previousHref="/docs/components/button"
                 previousLabel="Button"
-                nextHref="/docs/components/input"
-                nextLabel="Input"
+                nextHref="/docs/components/skeleton"
+                nextLabel="Skeleton"
             />
         </div>
     );

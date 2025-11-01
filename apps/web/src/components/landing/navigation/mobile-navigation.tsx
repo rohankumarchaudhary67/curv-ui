@@ -29,8 +29,7 @@ export default function MobileNavigation() {
         { label: "Alert", href: "/docs/components/alert" },
         { label: "Button", href: "/docs/components/button" },
         { label: "Checkbox", href: "/docs/components/checkbox" },
-        { label: "Input", href: "/docs/components/input" },
-        { label: "Spinner", href: "/docs/components/spinner" },
+        { label: "Skeleton", href: "/docs/components/skeleton" },
     ];
 
     return (
