@@ -53,7 +53,6 @@ export function cn(...inputs: ClassValue[]) {
                     <div className="mt-6">
                         <CodeBlock
                             code={`{
-  "$schema": "https://ui.shadcn.com/schema.json",
   "style": "new-york",
   "rsc": false,
   "tsx": true,

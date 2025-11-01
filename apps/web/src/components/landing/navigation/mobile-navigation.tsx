@@ -25,7 +25,13 @@ export default function MobileNavigation() {
         { label: "Installation", href: "/docs/installation" },
     ];
 
-    const components = [{ label: "Button", href: "/docs/components/button" }];
+    const components = [
+        { label: "Alert", href: "/docs/components/alert" },
+        { label: "Button", href: "/docs/components/button" },
+        { label: "Checkbox", href: "/docs/components/checkbox" },
+        { label: "Input", href: "/docs/components/input" },
+        { label: "Spinner", href: "/docs/components/spinner" },
+    ];
 
     return (
         <>

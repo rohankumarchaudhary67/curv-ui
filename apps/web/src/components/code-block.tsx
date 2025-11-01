@@ -9,12 +9,18 @@ type CodeBlockProps = {
     filename?: string | null;
 };
 
+const MAX_LINES = 8;
+
 const CodeBlock = ({
     code,
     language = "tsx",
     filename = null,
 }: CodeBlockProps) => {
     const [copied, setCopied] = useState(false);
+    const [expanded, setExpanded] = useState(false);
+
+    const lines = code.trim().split("\n");
+    const isLong = lines.length > MAX_LINES;
 
     const handleCopy = () => {
         navigator.clipboard.writeText(code);
@@ -36,28 +42,24 @@ const CodeBlock = ({
                         <span className="text-zinc-500">{filename}</span>
                     )}
                 </div>
+
                 <button
                     onClick={handleCopy}
-                    className="flex items-center gap-1 text-xs text-zinc-400 hover:text-white transition-colors cursor-pointer"
+                    className="flex items-center gap-1 text-xs text-zinc-400 hover:text-white transition-colors"
                 >
-                    {copied ? (
-                        <>
-                            <Check size={14} /> Copied
-                        </>
-                    ) : (
-                        <>
-                            <Copy size={14} /> Copy
-                        </>
-                    )}
+                    {copied ? <Check size={14} /> : <Copy size={14} />}{" "}
+                    {copied ? "Copied" : "Copy"}
                 </button>
             </div>
 
-            {/* Code with syntax highlighting */}
+            {/* Code */}
             <Highlight code={code.trim()} language={language as string}>
                 {({ style, tokens, getLineProps, getTokenProps }) => (
                     <pre
                         style={style}
-                        className="text-sm px-4 py-3 overflow-x-auto font-mono leading-relaxed bg-black"
+                        className={`text-sm px-4 py-3 overflow-hidden font-mono leading-relaxed bg-black transition-all duration-300
+              ${expanded ? "max-h-[600px]" : "max-h-[200px]"}
+            `}
                     >
                         {tokens.map((line, i) => (
                             <div key={i} {...getLineProps({ line })}>
@@ -72,6 +74,18 @@ const CodeBlock = ({
                     </pre>
                 )}
             </Highlight>
+
+            {/* Show more button */}
+            {isLong && (
+                <div className="flex justify-center bg-[#111111] border-t border-zinc-800 py-2">
+                    <button
+                        onClick={() => setExpanded(!expanded)}
+                        className="text-xs text-zinc-400 hover:text-white transition-colors"
+                    >
+                        {expanded ? "Show less" : "Show more"}
+                    </button>
+                </div>
+            )}
         </div>
     );
 };

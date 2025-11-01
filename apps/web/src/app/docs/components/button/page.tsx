@@ -36,13 +36,21 @@ export default function ButtonDocs() {
     return (
         <div className="max-w-3xl ml-0 md:ml-24 p-4 pt-12 md:p-8 text-white bg-black min-h-screen">
             <h1 className="text-4xl font-bold mb-3">Button</h1>
-            <p className="text-neutral-400 mb-12">
+            <p className="text-neutral-400 mb-6">
                 Displays a button or a component that looks like a button.
             </p>
 
+            <section className="mb-6">
+                <div className="border border-gray-700/50 rounded-lg md:py-48 py-24 flex justify-center items-center">
+                    <Button variant={"gradient"} size={"xl"}>
+                        Button
+                    </Button>
+                </div>
+            </section>
+
             <section className="mb-12">
                 <h2 className="text-2xl font-bold mb-4">Installation</h2>
-                <CodeBlock code="npx shadcn@latest add button" language="npm" />
+                <CodeBlock code="npx curv-ui add button" language="npm" />
             </section>
 
             <section className="mb-12">
@@ -53,12 +61,12 @@ export default function ButtonDocs() {
                 />
                 <div className="h-4" />
                 <CodeBlock
-                    code={`<Button variant="outline">Button</Button>`}
+                    code={`<Button variant="gradient">Button</Button>`}
                     language="tsx"
                 />
             </section>
 
-            <section>
+            <section className="mb-6">
                 <h2 className="text-2xl font-bold mb-6">Variants</h2>
 
                 {/* Variant Tabs */}
@@ -91,10 +99,10 @@ export default function ButtonDocs() {
             </section>
 
             <NavigationButtons
-                previousHref="/docs/installation"
-                previousLabel="Installation"
-                nextHref="/docs/components/card"
-                nextLabel="Card"
+                previousHref="/docs/components/alert"
+                previousLabel="Alert"
+                nextHref="/docs/components/checkbox"
+                nextLabel="Checkbox"
             />
         </div>
     );
