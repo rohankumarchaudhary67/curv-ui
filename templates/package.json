@@ -2,9 +2,6 @@
   "name": "@repo/templates",
   "version": "1.0.0",
   "type": "module",
-  "exports": {
-    "./button": "./components/button"
-  },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
     "class-variance-authority": "^0.7.1",

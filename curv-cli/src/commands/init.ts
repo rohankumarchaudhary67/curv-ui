@@ -3,6 +3,7 @@ import path from "path";
 import { Command } from "commander";
 import chalk from "chalk";
 import ora from "ora";
+import { execa } from "execa";
 
 export const init = new Command()
     .name("init")
@@ -171,6 +172,37 @@ body .razorpay-container {
 `;
 
             await fs.writeFile(cssPath, themeContent);
+
+            let utilDir: string;
+
+            // If project has `src` folder → use src/lib
+            if (fs.existsSync(path.join(cwd, "src"))) {
+                utilDir = path.join(cwd, "src", "lib");
+            } else {
+                // otherwise → use root/lib
+                utilDir = path.join(cwd, "lib");
+            }
+
+            const utilFile = path.join(utilDir, "utils.ts");
+
+            await fs.ensureDir(utilDir);
+
+            const utilContent = `import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}`;
+
+            await fs.writeFile(utilFile, utilContent);
+
+            spinner.text = "Installing clsx and tailwind-merge...";
+
+            await execa("npm", ["install", "clsx", "tailwind-merge"], {
+                cwd,
+                stdio: "ignore",
+            });
+
             spinner.succeed(`✅ Theme initialized successfully at ${cssPath}`);
             console.log(
                 chalk.green("You can now use your components directly!")
