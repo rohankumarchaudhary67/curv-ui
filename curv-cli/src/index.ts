@@ -2,6 +2,7 @@
 import { Command } from "commander";
 import { init } from "./commands/init.js";
 import { add } from "./commands/add.js";
+import { remove } from "./commands/delete.js";
 
 const program = new Command();
 
@@ -12,5 +13,6 @@ program
 
 program.addCommand(init);
 program.addCommand(add);
+program.addCommand(remove);
 
 program.parse();
