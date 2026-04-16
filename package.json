@@ -27,6 +27,7 @@
     "packages/*"
   ],
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "husky": "^9.1.7"
   }
 }
